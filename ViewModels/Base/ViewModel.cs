@@ -36,7 +36,7 @@ namespace NEW_CV19.ViewModels.Base
         /// <summary>Задача метода - разрешить кольцевые изменения свойств</summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="field">значение поля</param>
-        /// <param name="value">значение свойства</param>
+        /// <param name="value">значение  свойства</param>
         /// <param name="propertyName">имя изменяемого свойства</param>
         /// <returns>false - если значение поля и свойства совпадают, 
         /// в противном случае - true и вызов метода <see cref="OnPropertyChanged"/></returns>
