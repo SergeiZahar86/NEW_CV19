@@ -3,6 +3,16 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+
         xmlns:l="clr-namespace:NEW_CV19"
         mc:Ignorable="d"
         xmlns:vm="clr-namespace:NEW_CV19.ViewModels"
@@ -12,14 +22,25 @@
         >
     <Window.DataContext>
         <!-- Part 1 - 37:00 -->
-        <vm:MainWindowViewModel/>
+        <vm:MainWindowViewModel />
     </Window.DataContext>
-    <Grid>
-        <TextBox
-            Height="50"
-            Width="400"
-            TextWrapping="Wrap"
-            Text="{Binding Path=Title, UpdateSourceTrigger=PropertyChanged}"
-        />
-    </Grid>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Файл">
+                <MenuItem Header="Выход" />
+            </MenuItem>
+            <MenuItem Header="Помощь">
+                <MenuItem Header="О программе" />
+            </MenuItem>
+        </Menu>
+        <StatusBar
+            DockPanel.Dock="Bottom" />
+        <TabControl
+            Background="{StaticResource Background}"
+            BorderBrush="{StaticResource LightBackground}"
+            >
+            <TabItem />
+            <TabItem />
+        </TabControl>
+    </DockPanel>
 </Window>

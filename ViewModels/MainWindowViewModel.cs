@@ -1,18 +1,9 @@
 ﻿using NEW_CV19.ViewModels.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NEW_CV19.ViewModels
 {
     internal class MainWindowViewModel : ViewModel
     {
-        #region Заголовок окна
-
-        private string _title = "Анализ статистики CV19";
-
         /// <summary>Заголовок окна</summary>
         public string Title
         {
@@ -27,6 +18,10 @@ namespace NEW_CV19.ViewModels
             //}
             set => Set(ref _title, value);
         }
+
+        #region Заголовок окна
+
+        private string _title = "Анализ статистики CV19";
 
         #endregion
     }

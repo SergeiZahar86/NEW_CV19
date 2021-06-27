@@ -11,6 +11,7 @@ namespace NEW_CV19.ViewModels.Base
         {
             Dispose(true);
         }
+
         private bool _disposed;
 
         /// <summary>Деструктор</summary>
@@ -24,14 +25,12 @@ namespace NEW_CV19.ViewModels.Base
         }
 
 
-
-
         public event PropertyChangedEventHandler PropertyChanged;
+
         public void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
 
         /// <summary>Задача метода - разрешить кольцевые изменения свойств</summary>
         /// <typeparam name="T"></typeparam>
@@ -47,6 +46,5 @@ namespace NEW_CV19.ViewModels.Base
             OnPropertyChanged(propertyName);
             return true;
         }
-
     }
 }
