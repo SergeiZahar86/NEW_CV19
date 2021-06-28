@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        
+
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"
@@ -42,5 +42,18 @@
             <TabItem />
             <TabItem />
         </TabControl>
+        <!--<StackPanel>
+            <DatePicker x:Name="arrivalDatePicker" Header="Arrival date"
+                        DayFormat="{}{day.integer} ({dayofweek.abbreviated})"
+                        SelectedDateChanged="ArrivalDatePicker_SelectedDateChanged"/>
+            <StackPanel Orientation="Horizontal">
+                <TimePicker x:Name="arrivalTimePicker" Header="Arrival time"
+                            MinuteIncrement="15"
+                            SelectedTimeChanged="ArrivalTimePicker_SelectedTimeChanged"/>
+                <Button Content="Clear" Click="ClearDateButton_Click"
+                        VerticalAlignment="Bottom" Height="30" Width="54"/>
+            </StackPanel>
+            <TextBlock x:Name="arrivalText" Margin="0,12"/>
+        </StackPanel>-->
     </DockPanel>
 </Window>
