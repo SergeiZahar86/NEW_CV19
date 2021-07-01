@@ -45,10 +45,45 @@
                 <MenuItem Header="О программе" />
             </MenuItem>
         </Menu>
-        <StatusBar DockPanel.Dock="Bottom" />
+        <StatusBar DockPanel.Dock="Bottom">
+            <StatusBarItem>
+                <TextBlock Text="1234" />
+            </StatusBarItem>
+            <StatusBarItem>
+                <ProgressBar Width="100"
+                             Value="30" />
+            </StatusBarItem>
+        </StatusBar>
         <TabControl>
-            <TabItem />
-            <TabItem />
+            <TabItem Header="Вкладка 1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Rectangle Fill="Blue"
+                               Grid.Column="0"
+                               Grid.Row="0"
+                               Stroke="Red"
+                               StrokeThickness="3"
+                               RadiusX="3"
+                               RadiusY="7" />
+                    <Ellipse Fill="Blue"
+                             Grid.Column="1"
+                             Grid.Row="0"
+                             Stroke="Red"
+                             StrokeThickness="3" />
+                    <GridSplitter Grid.Column="0"
+                                  Grid.RowSpan="2"
+                                  Width="2"
+                                  HorizontalAlignment="Right" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="Вкладка 2"/>
         </TabControl>
     </DockPanel>
 </Window>
