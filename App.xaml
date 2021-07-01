@@ -2,53 +2,82 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:NEW_CV19"
-             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             StartupUri="Views/Windows/MainWindow.xaml"
-             >
+             xmlns:ui="http://schemas.modernwpf.com/2019"
+             StartupUri="Views/Windows/MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ui:XamlControlsResources />
+                <ui:ThemeResources>
+                    <ui:ThemeResources.ThemeDictionaries>
+                        <ResourceDictionary x:Key="Light">
+                            <ResourceDictionary.MergedDictionaries>
+                                <ui:ColorPaletteResources TargetTheme="Light"
+                                                          Accent="Green"
+                                                          AltHigh="LightGray" />
+                            </ResourceDictionary.MergedDictionaries>
+                        </ResourceDictionary>
+                        <ResourceDictionary x:Key="Dark">
+                            <ResourceDictionary.MergedDictionaries>
+                                <ui:ColorPaletteResources TargetTheme="Dark"
+                                                          Accent="Red"
+                                                          AltHigh="DarkGray" />
+                            </ResourceDictionary.MergedDictionaries>
+                        </ResourceDictionary>
+                    </ui:ThemeResources.ThemeDictionaries>
+                </ui:ThemeResources>
+                <!--<ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
-
-                <!-- Применит темную тему. Нужно еще добавить пространство имён (xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes")  -->
-                <materialDesign:BundledTheme BaseTheme="Dark" PrimaryColor="DeepPurple" SecondaryColor="Lime" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                --><!-- Применит темную тему. Нужно еще добавить пространство имён (xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes")  --><!--
+                <materialDesign:BundledTheme BaseTheme="Dark"
+                                             PrimaryColor="DeepPurple"
+                                             SecondaryColor="Lime" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />-->
                 <!-- ====================================================================================================================================== -->
-
             </ResourceDictionary.MergedDictionaries>
-
-
-            <SolidColorBrush x:Key="PrimaryHueLightBrush" Color="#70dac9"/>
-            <SolidColorBrush x:Key="PrimaryHueLightForegroundBrush" Color="Black"/>
-            <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="#39a899"/>
-            <SolidColorBrush x:Key="PrimaryHueMidForegroundBrush" Color="Black"/>
-            <SolidColorBrush x:Key="PrimaryHueDarkBrush" Color="#2c786b"/>
-            <SolidColorBrush x:Key="PrimaryHueDarkForegroundBrush" Color="#FFFFFF"/>
-            <!-- accent -->
-            <SolidColorBrush x:Key="SecondaryHueLightBrush" Color="#ffa097"/>
-            <SolidColorBrush x:Key="SecondaryHueLightForegroundBrush" Color="Black"/>
-            <SolidColorBrush x:Key="SecondaryHueMidBrush" Color="#f46e68"/>
-            <SolidColorBrush x:Key="SecondaryHueMidForegroundBrush" Color="Black"/>
-            <SolidColorBrush x:Key="SecondaryHueDarkBrush" Color="#ba584a"/>
-            <SolidColorBrush x:Key="SecondaryHueDarkForegroundBrush" Color="Black"/>
-
-            <SolidColorBrush x:Key="Background" Color="#FF303030"/>
-            <SolidColorBrush x:Key="LightBackground" Color="#FF424242"/>
-
-            <SolidColorBrush x:Key="LightGray" Color="#FFEEEEEE"/>
-            <SolidColorBrush x:Key="Gray" Color="#FFA0B2BB"/>
-            <SolidColorBrush x:Key="DarkGray" Color="#FF647076"/>
-            <SolidColorBrush x:Key="TextGray" Color="#FF9F9F9F"/>
-            <SolidColorBrush x:Key="LineTextGray" Color="#FFEEEEEE"/>
-
-            <SolidColorBrush x:Key="GreenElipse" Color="#24C985"/>
-
-
-
-
+            <!--<SolidColorBrush x:Key="PrimaryHueLightBrush"
+                             Color="#70dac9" />
+            <SolidColorBrush x:Key="PrimaryHueLightForegroundBrush"
+                             Color="Black" />
+            <SolidColorBrush x:Key="PrimaryHueMidBrush"
+                             Color="#39a899" />
+            <SolidColorBrush x:Key="PrimaryHueMidForegroundBrush"
+                             Color="Black" />
+            <SolidColorBrush x:Key="PrimaryHueDarkBrush"
+                             Color="#2c786b" />
+            <SolidColorBrush x:Key="PrimaryHueDarkForegroundBrush"
+                             Color="#FFFFFF" />
+            --><!-- accent --><!--
+            <SolidColorBrush x:Key="SecondaryHueLightBrush"
+                             Color="#ffa097" />
+            <SolidColorBrush x:Key="SecondaryHueLightForegroundBrush"
+                             Color="Black" />
+            <SolidColorBrush x:Key="SecondaryHueMidBrush"
+                             Color="#f46e68" />
+            <SolidColorBrush x:Key="SecondaryHueMidForegroundBrush"
+                             Color="Black" />
+            <SolidColorBrush x:Key="SecondaryHueDarkBrush"
+                             Color="#ba584a" />
+            <SolidColorBrush x:Key="SecondaryHueDarkForegroundBrush"
+                             Color="Black" />
+            <SolidColorBrush x:Key="Background"
+                             Color="#FF303030" />
+            <SolidColorBrush x:Key="LightBackground"
+                             Color="#FF424242" />
+            <SolidColorBrush x:Key="LightGray"
+                             Color="#FFEEEEEE" />
+            <SolidColorBrush x:Key="Gray"
+                             Color="#FFA0B2BB" />
+            <SolidColorBrush x:Key="DarkGray"
+                             Color="#FF647076" />
+            <SolidColorBrush x:Key="TextGray"
+                             Color="#FF9F9F9F" />
+            <SolidColorBrush x:Key="LineTextGray"
+                             Color="#FFEEEEEE" />
+            <SolidColorBrush x:Key="GreenElipse"
+                             Color="#24C985" />-->
         </ResourceDictionary>
     </Application.Resources>
 </Application>
