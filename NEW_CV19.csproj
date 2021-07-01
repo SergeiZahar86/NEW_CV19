@@ -87,6 +87,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Infrastructure\Commands\Base\Command.cs" />
     <Compile Include="ViewModels\Base\ViewModel.cs" />
     <Page Include="Views\Windows\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -131,7 +132,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
-    <Folder Include="Infrastructure\Commands\Base\" />
     <Folder Include="Models\" />
     <Folder Include="Sevices\" />
   </ItemGroup>
