@@ -24,5 +24,18 @@ namespace NEW_CV19.ViewModels
         private string _title = "Анализ статистики CV19";
 
         #endregion
+        #region Status : string - Статус программы
+
+        /// <summary>Статус программы</summary>
+        private string _Status = "Готов!";
+
+        /// <summary>Статус программы</summary>
+        public string Status
+        {
+            get => _Status;
+            set => Set(ref _Status, value);
+        }
+
+        #endregion
     }
 }
