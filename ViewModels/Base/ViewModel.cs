@@ -23,7 +23,7 @@ namespace NEW_CV19.ViewModels.Base
             if (!disposing || _disposed) return;
             _disposed = true;
         }
-
+        // Освобождение управляемых ресурсов
 
         public event PropertyChangedEventHandler PropertyChanged;
 
