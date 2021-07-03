@@ -7,6 +7,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="DictionaryMain.xaml" />
                 <ui:XamlControlsResources />
                 <ui:ThemeResources>
                     <ui:ThemeResources.ThemeDictionaries>

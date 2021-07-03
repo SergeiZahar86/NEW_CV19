@@ -15,7 +15,9 @@
         xmlns:l="clr-namespace:NEW_CV19"
         mc:Ignorable="d"
         xmlns:vm="clr-namespace:NEW_CV19.ViewModels"
+        xmlns:cmd="clr-namespace:NEW_CV19.Infrastructure.Commands"
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:fa5="http://schemas.fontawesome.com/icons/"
         Title="{Binding Path=Title}"
         Height="450"
         Width="800">
@@ -36,10 +38,26 @@
         <!-- Part 1 - 37:00 -->
         <vm:MainWindowViewModel />
     </Window.DataContext>
+    <Window.InputBindings>
+        <KeyBinding Modifiers="Shift"
+                    Key="Q"
+                    Command="{Binding CloseApplicationCommand}" />
+    </Window.InputBindings>
+    <Window.Resources>
+        <cmd:CloseApplicationCommand x:Key="CloseApplicationCommand_res" />
+    </Window.Resources>
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="Файл">
-                <MenuItem Header="Выход" Command="{Binding CloseApplicationCommand}"/>
+                <!--<MenuItem Header="Выход"
+                              Command="{Binding CloseApplicationCommand}"/>-->
+                <MenuItem Header="Выход"
+                              Command="{StaticResource CloseApplicationCommand_res}"/>
+                <!--<MenuItem Header="Выход">
+                    <MenuItem.Command>
+                        <cmd:CloseApplicationCommand />
+                    </MenuItem.Command>
+                </MenuItem>-->
             </MenuItem>
             <MenuItem Header="Помощь">
                 <MenuItem Header="О программе" />
@@ -55,7 +73,24 @@
             </StatusBarItem>
         </StatusBar>
         <TabControl>
-            <TabItem Header="Вкладка 1">
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <!--<Image Source=""></Image>-->
+                        <!--<fa5:ImageAwesome Icon="Brands_Android"
+                                          Foreground="Red"
+                                          Height="10"
+                                          Margin="0,0,10,0"/>-->
+                        <TextBlock x:Name="tbFontAwesome"
+                                   Text="&#xf641;"
+                                   FontFamily="{StaticResource FontAwesome}"
+                                   Foreground="Red"
+                                   FontSize="18"
+                                   Margin="0,0,10,0"
+                                   VerticalAlignment="Center"></TextBlock>
+                        <TextBlock Text="Вкладка 1" />
+                    </StackPanel>
+                </TabItem.Header>
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition />
@@ -76,7 +111,12 @@
                              Grid.Column="1"
                              Grid.Row="0"
                              Stroke="Red"
-                             StrokeThickness="3" />
+                             StrokeThickness="3">
+                        <Ellipse.InputBindings>
+                            <MouseBinding Command="{Binding CloseApplicationCommand}"
+                                          MouseAction="LeftDoubleClick" />
+                        </Ellipse.InputBindings>
+                    </Ellipse>
                     <GridSplitter Grid.Column="0"
                                   Grid.RowSpan="2"
                                   Width="2"
