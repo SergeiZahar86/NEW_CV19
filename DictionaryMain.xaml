@@ -1,4 +1,5 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <FontFamily x:Key="FontAwesome">/NEW_CV19;component/Fonts/FontAwesome_Solid.otf#Font Awesome 5 Free Solid</FontFamily>
+    <FontFamily x:Key="myIconsSet">/NEW_CV19;component/Fonts/myIconsSet.ttf#myIconsSet</FontFamily>
 </ResourceDictionary>

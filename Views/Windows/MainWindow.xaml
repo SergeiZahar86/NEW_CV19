@@ -123,7 +123,37 @@
                                   HorizontalAlignment="Right" />
                 </Grid>
             </TabItem>
-            <TabItem Header="Вкладка 2"/>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Name="AcceptButton">
+                            <StackPanel>
+                                <ui:SymbolIcon Symbol="Contact" />
+                                <TextBlock Text="Accept" />
+                            </StackPanel>
+                        </TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Name="AcceptButton2"
+                                   FontFamily="Segoe MDL2 Assets"
+                                   Text="&#xE102;">
+                        </TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Name="AcceptButton3"
+                                   FontFamily="{StaticResource myIconsSet}"
+                                   Text="&#xe925;"></TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+            </TabItem>
         </TabControl>
     </DockPanel>
 </Window>
