@@ -43,6 +43,8 @@
                     Key="Q"
                     Command="{Binding CloseApplicationCommand}" />
     </Window.InputBindings>
+     <!-- Для экономии памяти команды лучше вынести в ресурсы окна или всего 
+    приложения в App.xaml (если команда часто используется) -->    
     <Window.Resources>
         <cmd:CloseApplicationCommand x:Key="CloseApplicationCommand_res" />
     </Window.Resources>
@@ -87,7 +89,7 @@
                                    Foreground="Red"
                                    FontSize="18"
                                    Margin="0,0,10,0"
-                                   VerticalAlignment="Center"></TextBlock>
+                                   VerticalAlignment="Center" />
                         <TextBlock Text="Вкладка 1" />
                     </StackPanel>
                 </TabItem.Header>
@@ -140,8 +142,7 @@
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Name="AcceptButton2"
                                    FontFamily="Segoe MDL2 Assets"
-                                   Text="&#xE102;">
-                        </TextBlock>
+                                   Text="&#xE102;" />
                     </StackPanel>
                 </TabItem.Header>
             </TabItem>
@@ -150,7 +151,7 @@
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Name="AcceptButton3"
                                    FontFamily="{StaticResource myIconsSet}"
-                                   Text="&#xe925;"></TextBlock>
+                                   Text="&#xe925;" />
                     </StackPanel>
                 </TabItem.Header>
             </TabItem>
