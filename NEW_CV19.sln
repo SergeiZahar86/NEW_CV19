@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{1EFDFF91
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CV19WpfTest", "Tests\CV19WpfTest\CV19WpfTest.csproj", "{894C2213-85DF-4054-AAFA-330FB099E67B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CV19_Console", "..\CV19_Console\CV19_Console.csproj", "{F37CF080-F32F-48AE-8997-AC6CA09E7F61}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CV19_Console", "Tests\CV19_Console\CV19_Console.csproj", "{F37CF080-F32F-48AE-8997-AC6CA09E7F61}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
