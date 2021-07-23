@@ -46,5 +46,9 @@ namespace NEW_CV19.ViewModels.Base
             OnPropertyChanged(propertyName);
             return true;
         }
+
+        private System.Collections.IEnumerable testDataPoints;
+
+        public System.Collections.IEnumerable TestDataPoints { get => testDataPoints; set => Set(ref testDataPoints, value); }
     }
 }

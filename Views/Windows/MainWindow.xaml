@@ -6,6 +6,7 @@
         xmlns:ui="http://schemas.modernwpf.com/2019"
         xmlns:controls="clr-namespace:ModernWpf.Controls;assembly=ModernWpf.Controls"
         xmlns:mahApps="clr-namespace:ModernWpf.MahApps.Controls;assembly=ModernWpf.MahApps"
+        xmlns:oxy="http://oxyplot.org/wpf"
         ui:WindowHelper.UseModernWindowStyle="True"
         WindowStartupLocation="CenterScreen"
         Background="{DynamicResource SystemControlPageBackgroundAltHighBrush}"
@@ -18,6 +19,7 @@
         xmlns:cmd="clr-namespace:NEW_CV19.Infrastructure.Commands"
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:fa5="http://schemas.fontawesome.com/icons/"
+        xmlns:base="clr-namespace:NEW_CV19.ViewModels.Base"
         Title="{Binding Path=Title}"
         Height="450"
         Width="800">
@@ -64,6 +66,22 @@
             <MenuItem Header="Помощь">
                 <MenuItem Header="О программе" />
             </MenuItem>
+            <MenuItem Command="{Binding ChangeTabIndexCommand}"
+                      CommandParameter="-1">
+                <MenuItem.Header>
+                    <mah:FontIcon FontFamily="Segoe MDL2 Assets"
+                              Glyph="&#xE112;" />
+                </MenuItem.Header>
+            </MenuItem>
+            <MenuItem Command="{Binding ChangeTabIndexCommand}"
+                      CommandParameter="+1">
+                <MenuItem.Header>
+                    <mah:FontIcon FontFamily="Segoe MDL2 Assets"
+                                  Glyph="&#xE111;" />
+                </MenuItem.Header>
+            </MenuItem>
+            <MenuItem Header="{Binding SelectedPageIndex}"
+                      IsEnabled="False" />
         </Menu>
         <StatusBar DockPanel.Dock="Bottom">
             <StatusBarItem>
@@ -73,9 +91,27 @@
                 <ProgressBar Width="100"
                              Value="30" />
             </StatusBarItem>
+            <StatusBarItem Content="{Binding SelectedPageIndex}" />
         </StatusBar>
-        <TabControl>
+        <TabControl SelectedIndex="{Binding SelectedPageIndex}">
             <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="График" />
+                    </StackPanel>
+                </TabItem.Header>
+                <oxy:Plot>
+                    <oxy:Plot.Axes>
+                        <oxy:LinearAxis Position="Left" />
+                        <oxy:LinearAxis Position="Bottom" />
+                    </oxy:Plot.Axes>
+                    <oxy:LineSeries Color="Red"
+                                    ItemsSource="{Binding TestDataPoints}"
+                                    DataFieldX="XValue"
+                                    DataFieldY="YValue"/>
+                </oxy:Plot>
+            </TabItem>
+            <TabItem Visibility="Visible">
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <!--<Image Source=""></Image>-->
@@ -125,7 +161,7 @@
                                   HorizontalAlignment="Right" />
                 </Grid>
             </TabItem>
-            <TabItem>
+            <TabItem Visibility="Visible">
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Name="AcceptButton">
@@ -137,7 +173,7 @@
                     </StackPanel>
                 </TabItem.Header>
             </TabItem>
-            <TabItem>
+            <TabItem Visibility="Collapsed">
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Name="AcceptButton2"
@@ -146,7 +182,7 @@
                     </StackPanel>
                 </TabItem.Header>
             </TabItem>
-            <TabItem>
+            <TabItem Visibility="Collapsed">
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Name="AcceptButton3"
