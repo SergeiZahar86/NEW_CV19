@@ -18,6 +18,7 @@
         xmlns:vm="clr-namespace:NEW_CV19.ViewModels"
         xmlns:cmd="clr-namespace:NEW_CV19.Infrastructure.Commands"
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:decanat="clr-namespace:NEW_CV19.Models.Decanat"
         xmlns:fa5="http://schemas.fontawesome.com/icons/"
         xmlns:base="clr-namespace:NEW_CV19.ViewModels.Base"
         Title="{Binding Path=Title}"
@@ -173,7 +174,7 @@
                     </StackPanel>
                 </TabItem.Header>
             </TabItem>
-            <TabItem Visibility="Collapsed">
+            <TabItem Visibility="Visible">
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Name="AcceptButton2"
@@ -181,6 +182,54 @@
                                    Text="&#xE102;" />
                     </StackPanel>
                 </TabItem.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="250" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <GroupBox Grid.Column="0"
+                              Header="Группы"
+                              Margin="10,0,0,0">
+                        <ListBox ItemsSource="{Binding Groups}"
+                                 DisplayMemberPath="Name"
+                                 SelectedItem="{Binding SelectedGroup}"
+                                 SelectedIndex="0"/>
+                    </GroupBox>
+                    <GroupBox Grid.Column="1"
+                              Header="{Binding SelectedGroup.Name, FallbackValue='Студенты', TargetNullValue='Группа не выбрана'}"
+                              Margin="10,0,0,0">
+                        <DataGrid ItemsSource="{Binding SelectedGroup.Students}"
+                                  AutoGenerateColumns="False"
+                                  IsReadOnly="True"
+                                  VerticalGridLinesBrush="DarkGray"
+                                  >
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Фамилия"
+                                                    Binding="{Binding Surname}" />
+                                <DataGridTextColumn Header="Имя"
+                                                    Binding="{Binding Name}" />
+                                <DataGridTextColumn Header="Отчество"
+                                                    Binding="{Binding Patronymic}" />
+                                <DataGridTextColumn Header="Рейтинг"
+                                                    Binding="{Binding Rating}" />
+                                <!--<DataGridTextColumn Header="Дата рождения"
+                                                    Binding="{Binding Birthday, StringFormat=dd.MM.yyyy}" />-->
+                                <DataGridTemplateColumn Header="Дата рождения">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate DataType="decanat:Student">
+                                            <DatePicker SelectedDate="{Binding Birthday}"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTextColumn Header="Группа"
+                                                    Binding="{Binding DataContext.SelectedGroup.Name, RelativeSource={RelativeSource AncestorType=DataGrid}}" />
+                                <DataGridTextColumn Header="Заметки"
+                                                    Binding="{Binding Description}"
+                                                    Width="*" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </GroupBox>
+                </Grid>
             </TabItem>
             <TabItem Visibility="Collapsed">
                 <TabItem.Header>
