@@ -180,13 +180,56 @@ namespace NEW_CV19.ViewModels
 
         #endregion
 
+        #region CreateGroupCommand
+
+        public ICommand CreateGroupCommand { get; }
+        private bool CanCreateGroupCommandExecute(object p) => true;
+        private void OnCreateGroupCommandExecuted(object p)
+        {
+            var group_max_index = Groups.Count + 1;
+            var new_group = new Group
+            {
+                Name = $"Группа {group_max_index}",
+                Students = new ObservableCollection<Student>()
+            };
+            Groups.Add(new_group);
+        }
+
+        #endregion
+
+        #region DeleteGroupCommand
+        public ICommand DeleteGroupCommand { get; }
+        private bool CanDeleteGroupCommandExecute(object p) => p is Group group && Groups.Contains(group);
+        private void OnDeleteGroupCommandExecuted(object p)
+        {
+            if (!(p is Group group)) return;
+            var group_index = Groups.IndexOf(group);
+            Groups.Remove(group);
+            if (group_index < Groups.Count)
+                SelectedGroup = Groups[group_index];
+        }
+        #endregion
+
         #endregion
 
         public MainWindowViewModel()
         {
             #region Команды
-            CloseApplicationCommand = new LambdaCommand(OnCloseApplicationCommandExecuted, CanCloseApplicationCommandExecute);
-            ChangeTabIndexCommand = new LambdaCommand(OnChangeTabIndexCommandExecuted, CanChangeTabIndexCommandExecute);
+            CloseApplicationCommand = new LambdaCommand(
+                OnCloseApplicationCommandExecuted,
+                CanCloseApplicationCommandExecute);
+
+            ChangeTabIndexCommand = new LambdaCommand(
+                OnChangeTabIndexCommandExecuted,
+                CanChangeTabIndexCommandExecute);
+
+            CreateGroupCommand = new LambdaCommand(
+                OnCreateGroupCommandExecuted,
+                CanCreateGroupCommandExecute);
+
+            DeleteGroupCommand = new LambdaCommand(
+                OnDeleteGroupCommandExecuted,
+                CanDeleteGroupCommandExecute);
 
             #endregion
 
