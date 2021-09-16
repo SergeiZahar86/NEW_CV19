@@ -206,12 +206,16 @@
                                         HorizontalAlignment="Center"
                                         MinWidth="100"
                                         Margin="0,5"
-                                        Command="{Binding CreateGroupCommand}"/>
+                                        Command="{Binding CreateGroupCommand}"
+                                        Style="{StaticResource AccentButtonStyle}" />
                                 <Button Content="Удалить"
                                         Grid.Column="1"
                                         HorizontalAlignment="Center"
                                         MinWidth="100"
                                         Margin="0,5"
+                                        Background="Transparent"
+                                        BorderBrush="DimGray"
+                                        BorderThickness="1"
                                         Command="{Binding DeleteGroupCommand}"
                                         CommandParameter="{Binding SelectedGroup}"/>
                             </Grid>
